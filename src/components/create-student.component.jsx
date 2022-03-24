@@ -24,14 +24,14 @@ export default class CreateStudent extends Component {
       url: 'http://localhost:4000/students/create-student',
       data: this.state,
       mode: 'cors',
-    }).then((response) => {
-      if (response.data.status === 'success') {
-        alert('Success');
+    })
+      .then((response) => {
+        console.log(response.data);
         this.setState({ name: '', email: '', rollNo: '' });
-      } else if (response.data.status === 'fail') {
-        alert('Failure');
-      }
-    });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   render() {
