@@ -3,9 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/header.component';
 
 import './App.css';
-import CreateStudent from './components/create-student.component';
+import { CreateStudent } from './components/create-student.component';
 import EditStudent from './components/edit-student.component';
-import StudentList from './components/student-list.component';
+import { StudentList } from './components/student-list.component';
 
 function App() {
   return (
