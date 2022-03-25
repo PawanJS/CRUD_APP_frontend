@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -26,7 +27,7 @@ export const StudentList = () => {
 
     axios
       .delete(`http://localhost:4000/students/delete-student/${studentId}`)
-      .then((response) => console.log('Sucessfully deleted'))
+      .then((response) => alert('Student Data Deleted Sucessfully!'))
       .catch((error) => console.log(error));
 
     const newStudentData = studentData.filter(
@@ -53,6 +54,12 @@ export const StudentList = () => {
               <td>{student.email}</td>
               <td>{student.rollNo}</td>
               <td>
+                <Link
+                  className="btn btn-success btn-sm me-2"
+                  to={`/edit-student/${student._id}`}
+                >
+                  Edit
+                </Link>
                 <Button
                   size="sm"
                   data-id={student._id}

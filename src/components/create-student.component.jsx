@@ -19,14 +19,10 @@ export const CreateStudent = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios({
-      method: 'POST',
-      url: 'http://localhost:4000/students/create-student',
-      data: formValues,
-      mode: 'cors',
-    })
+    axios
+      .post('http://localhost:4000/students/create-student', formValues)
       .then((response) => {
-        console.log(response.data);
+        alert('Student Data created Sucessfully!');
         setFormvalues({ name: '', email: '', rollNo: '' });
       })
       .catch(function (error) {
