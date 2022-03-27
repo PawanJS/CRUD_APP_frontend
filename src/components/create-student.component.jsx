@@ -19,8 +19,13 @@ export const CreateStudent = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // http://localhost:4000/students/create-student
+
     axios
-      .post('http://localhost:4000/students/create-student', formValues)
+      .post(
+        'https://crud-app-pawan-js.herokuapp.com/students/create-student',
+        formValues
+      )
       .then((response) => {
         alert('Student Data created Sucessfully!');
         setFormvalues({ name: '', email: '', rollNo: '' });

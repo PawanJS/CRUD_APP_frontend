@@ -15,23 +15,28 @@ export const EditStudent = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `http://localhost:4000/students/edit-student/${id}`,
-      data: formValues,
-      mode: 'cors',
-    })
-      .then((response) => {
-        setFormvalues({
-          name: response.data.name,
-          email: response.data.email,
-          rollNo: response.data.rollNo,
+    const fetchData = async () => {
+      // http://localhost:4000/students/edit-student/${id}
+
+      await axios
+        .get(
+          `https://crud-app-pawan-js.herokuapp.com/students/edit-student/${id}`,
+          formValues
+        )
+        .then((response) => {
+          setFormvalues({
+            name: response.data.name,
+            email: response.data.email,
+            rollNo: response.data.rollNo,
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
         });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [id]);
+    };
+
+    fetchData();
+  }, [formValues, id]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -42,8 +47,13 @@ export const EditStudent = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // http://localhost:4000/students/update-student/${id}`
+
     axios
-      .put(`http://localhost:4000/students/update-student/${id}`, formValues)
+      .put(
+        `https://crud-app-pawan-js.herokuapp.com/students/update-student/${id}`,
+        formValues
+      )
       .then((response) => {
         alert('Student Data Updated Sucessfully!');
         setFormvalues({ name: '', email: '', rollNo: '' });
