@@ -17,11 +17,11 @@ export const EditStudent = () => {
   useEffect(() => {
     const fetchData = async () => {
       // http://localhost:4000/students/edit-student/${id}
+      // https://crud-app-pawan-js.herokuapp.com/students/edit-student/${id}
 
       await axios
         .get(
-          `https://crud-app-pawan-js.herokuapp.com/students/edit-student/${id}`,
-          formValues
+          `https://crud-app-pawan-js.herokuapp.com/students/edit-student/${id}`
         )
         .then((response) => {
           setFormvalues({
@@ -36,7 +36,7 @@ export const EditStudent = () => {
     };
 
     fetchData();
-  }, [formValues, id]);
+  }, [id]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -48,6 +48,7 @@ export const EditStudent = () => {
     event.preventDefault();
 
     // http://localhost:4000/students/update-student/${id}`
+    // https://crud-app-pawan-js.herokuapp.com/students/update-student/${id}
 
     axios
       .put(
