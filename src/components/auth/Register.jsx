@@ -47,7 +47,6 @@ export const Register = ({ setLoginUser }) => {
           errors: {},
         });
 
-        console.log(res);
         setLoginUser(res.data);
         navigate('/student-list');
       })

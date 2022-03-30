@@ -37,7 +37,6 @@ export const Login = ({ setLoginUser }) => {
           errors: {},
         });
 
-        console.log(res);
         setLoginUser(res.data.user);
         navigate('/student-list');
       })
