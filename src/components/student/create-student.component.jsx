@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export const CreateStudent = () => {
-  const [formValues, setFormvalues] = useState({
-    name: '',
-    email: '',
-    rollNo: '',
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    rollNo: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setFormvalues({ ...formValues, [name]: value });
+    setFormValues({ ...formValues, [name]: value });
   };
 
   const handleSubmit = (event) => {
@@ -23,13 +26,11 @@ export const CreateStudent = () => {
     // https://crud-app-pawan-js.herokuapp.com/students/create-student
 
     axios
-      .post(
-        'https://crud-app-pawan-js.herokuapp.com/students/create-student',
-        formValues
-      )
+      .post(" http://localhost:4000/students/create-student", formValues)
       .then((response) => {
-        alert('Student Data created Sucessfully!');
-        setFormvalues({ name: '', email: '', rollNo: '' });
+        alert("Student Data created Successfully!");
+        setFormValues({ name: "", email: "", rollNo: "" });
+        navigate("/student-list");
       })
       .catch(function (error) {
         console.log(error);
