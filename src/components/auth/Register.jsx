@@ -33,7 +33,10 @@ export const Register = ({ setLoginUser }) => {
     };
 
     axios
-      .post('http://localhost:4000/api/users/register', newUser)
+      .post(
+        'https://crud-app-pawan-js.herokuapp.com/api/users/register',
+        newUser
+      )
       .then((res) => {
         alert('User created successfully!');
         setFormValues({

@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 export const EditStudent = () => {
   const [formValues, setFormValues] = useState({
-    name: "",
-    email: "",
-    rollNo: "",
+    name: '',
+    email: '',
+    rollNo: '',
   });
 
   const { id } = useParams();
@@ -20,7 +20,9 @@ export const EditStudent = () => {
       // https://crud-app-pawan-js.herokuapp.com/students/edit-student/${id}
 
       await axios
-        .get(`http://localhost:4000/students/edit-student/${id}`)
+        .get(
+          `https://crud-app-pawan-js.herokuapp.com/students/edit-student/${id}`
+        )
         .then((response) => {
           setFormValues({
             name: response.data.name,
@@ -49,11 +51,14 @@ export const EditStudent = () => {
     // https://crud-app-pawan-js.herokuapp.com/students/update-student/${id}
 
     axios
-      .put(`http://localhost:4000/students/update-student/${id}`, formValues)
+      .put(
+        `https://crud-app-pawan-js.herokuapp.com/students/update-student/${id}`,
+        formValues
+      )
       .then((response) => {
-        alert("Student Data Updated Sucessfully!");
-        setFormValues({ name: "", email: "", rollNo: "" });
-        navigate("/student-list");
+        alert('Student Data Updated Sucessfully!');
+        setFormValues({ name: '', email: '', rollNo: '' });
+        navigate('/student-list');
       })
       .catch(function (error) {
         console.log(error);

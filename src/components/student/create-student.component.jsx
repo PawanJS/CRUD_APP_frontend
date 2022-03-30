@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 export const CreateStudent = () => {
   const [formValues, setFormValues] = useState({
-    name: "",
-    email: "",
-    rollNo: "",
+    name: '',
+    email: '',
+    rollNo: '',
   });
 
   const navigate = useNavigate();
@@ -26,11 +26,14 @@ export const CreateStudent = () => {
     // https://crud-app-pawan-js.herokuapp.com/students/create-student
 
     axios
-      .post(" http://localhost:4000/students/create-student", formValues)
+      .post(
+        'https://crud-app-pawan-js.herokuapp.com/students/create-student',
+        formValues
+      )
       .then((response) => {
-        alert("Student Data created Successfully!");
-        setFormValues({ name: "", email: "", rollNo: "" });
-        navigate("/student-list");
+        alert('Student Data created Successfully!');
+        setFormValues({ name: '', email: '', rollNo: '' });
+        navigate('/student-list');
       })
       .catch(function (error) {
         console.log(error);

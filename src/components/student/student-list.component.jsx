@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 
 export const StudentList = () => {
   const [studentData, setStudentData] = useState([]);
@@ -11,7 +11,7 @@ export const StudentList = () => {
     // http://localhost:4000/students/
     // https://crud-app-pawan-js.herokuapp.com/students/
 
-    const url = "http://localhost:4000/students/";
+    const url = 'https://crud-app-pawan-js.herokuapp.com/students/';
     const fetchData = async () => {
       try {
         const response = await fetch(url);
@@ -26,14 +26,16 @@ export const StudentList = () => {
   }, []);
 
   const handleDelete = (event) => {
-    const studentId = event.target.getAttribute("data-id");
+    const studentId = event.target.getAttribute('data-id');
 
     // http://localhost:4000/students/delete-student/${studentId}
     // https://crud-app-pawan-js.herokuapp.com/students/delete-student/${studentId}
 
     axios
-      .delete(`http://localhost:4000/students/delete-student/${studentId}`)
-      .then((response) => alert("Student Data Deleted Successfully!"))
+      .delete(
+        `https://crud-app-pawan-js.herokuapp.com/students/delete-student/${studentId}`
+      )
+      .then((response) => alert('Student Data Deleted Successfully!'))
       .catch((error) => console.log(error));
 
     const newStudentData = studentData.filter(

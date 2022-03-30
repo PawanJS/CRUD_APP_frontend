@@ -28,7 +28,7 @@ export const Login = ({ setLoginUser }) => {
     };
 
     axios
-      .post('http://localhost:4000/api/users/login', newUser)
+      .post('https://crud-app-pawan-js.herokuapp.com/api/users/login', newUser)
       .then((res) => {
         alert('Logged in successfully!');
         setFormValues({
