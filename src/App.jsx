@@ -14,6 +14,8 @@ const App = () => {
     JSON.parse(localStorage.getItem('user'))
   );
 
+  console.log(process.env.NODE_ENV);
+
   return (
     <div className="App">
       <Header user={user} setLoginUser={setLoginUser} />
