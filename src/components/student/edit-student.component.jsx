@@ -24,7 +24,7 @@ export const EditStudent = () => {
           `${
             process.env.NODE_ENV !== 'production'
               ? process.env.REACT_APP_DEV_URL
-              : process.env.REACT_APP_PROD_URL
+              : 'https://crud-app-pawan-js.herokuapp.com'
           }/students/edit-student/${id}`
         )
         .then((response) => {
@@ -59,7 +59,7 @@ export const EditStudent = () => {
         `${
           process.env.NODE_ENV !== 'production'
             ? process.env.REACT_APP_DEV_URL
-            : process.env.REACT_APP_PROD_URL
+            : 'https://crud-app-pawan-js.herokuapp.com'
         }/students/update-student/${id}`,
         formValues
       )

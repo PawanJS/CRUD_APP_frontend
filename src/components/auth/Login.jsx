@@ -32,7 +32,7 @@ export const Login = ({ setLoginUser }) => {
         `${
           process.env.NODE_ENV !== 'production'
             ? process.env.REACT_APP_DEV_URL
-            : process.env.REACT_APP_PROD_URL
+            : 'https://crud-app-pawan-js.herokuapp.com'
         }/api/users/login`,
         newUser
       )
