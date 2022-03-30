@@ -14,10 +14,6 @@ const App = () => {
     JSON.parse(localStorage.getItem('user'))
   );
 
-  console.log(process.env.REACT_APP_DEV_URL);
-  console.log(process.env.REACT_APP_PROD_URL);
-  console.log(process.env.MONGODB_URL);
-
   return (
     <div className="App">
       <Header user={user} setLoginUser={setLoginUser} />
