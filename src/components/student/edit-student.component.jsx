@@ -51,9 +51,6 @@ export const EditStudent = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // http://localhost:4000/students/update-student/${id}`
-    // https://crud-app-pawan-js.herokuapp.com/students/update-student/${id}
-
     axios
       .put(
         `${

@@ -18,7 +18,10 @@ const App = () => {
     <div className="App">
       <Header user={user} setLoginUser={setLoginUser} />
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route
+          path="/"
+          element={user && user._id ? <StudentList /> : <Landing />}
+        />
         <Route path="/login" element={<Login setLoginUser={setLoginUser} />} />
         <Route
           path="/register"

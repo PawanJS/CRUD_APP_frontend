@@ -32,9 +32,6 @@ export const StudentList = () => {
   const handleDelete = (event) => {
     const studentId = event.target.getAttribute('data-id');
 
-    // http://localhost:4000/students/delete-student/${studentId}
-    // https://crud-app-pawan-js.herokuapp.com/students/delete-student/${studentId}
-
     axios
       .delete(
         `${
