@@ -14,7 +14,7 @@ export const StudentList = () => {
     const url = `${
       process.env.NODE_ENV !== 'production'
         ? process.env.REACT_APP_DEV_URL
-        : 'https://crud-app-pawan-js.herokuapp.com'
+        : process.env.REACT_APP_PROD_URL
     }/students/`;
     const fetchData = async () => {
       try {
@@ -40,7 +40,7 @@ export const StudentList = () => {
         `${
           process.env.NODE_ENV !== 'production'
             ? process.env.REACT_APP_DEV_URL
-            : 'https://crud-app-pawan-js.herokuapp.com'
+            : process.env.REACT_APP_PROD_URL
         }/students/delete-student/${studentId}`
       )
       .then((response) => alert('Student Data Deleted Successfully!'))

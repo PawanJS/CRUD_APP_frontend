@@ -30,7 +30,7 @@ export const CreateStudent = () => {
         `${
           process.env.NODE_ENV !== 'production'
             ? process.env.REACT_APP_DEV_URL
-            : 'https://crud-app-pawan-js.herokuapp.com'
+            : process.env.REACT_APP_PROD_URL
         }/students/create-student`,
         formValues
       )
