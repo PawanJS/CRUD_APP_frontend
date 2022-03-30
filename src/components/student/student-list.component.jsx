@@ -11,7 +11,11 @@ export const StudentList = () => {
     // http://localhost:4000/students/
     // https://crud-app-pawan-js.herokuapp.com/students/
 
-    const url = 'https://crud-app-pawan-js.herokuapp.com/students/';
+    const url = `${
+      process.env.NODE_ENV !== 'production'
+        ? process.env.REACT_APP_DEV_URL
+        : process.env.REACT_APP_PROD_URL
+    }/students/`;
     const fetchData = async () => {
       try {
         const response = await fetch(url);
@@ -33,7 +37,11 @@ export const StudentList = () => {
 
     axios
       .delete(
-        `https://crud-app-pawan-js.herokuapp.com/students/delete-student/${studentId}`
+        `${
+          process.env.NODE_ENV !== 'production'
+            ? process.env.REACT_APP_DEV_URL
+            : process.env.REACT_APP_PROD_URL
+        }/students/delete-student/${studentId}`
       )
       .then((response) => alert('Student Data Deleted Successfully!'))
       .catch((error) => console.log(error));

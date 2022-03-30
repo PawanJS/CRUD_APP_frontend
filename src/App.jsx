@@ -10,7 +10,9 @@ import { EditStudent } from './components/student/edit-student.component';
 import { StudentList } from './components/student/student-list.component';
 
 const App = () => {
-  const [user, setLoginUser] = useState({});
+  const [user, setLoginUser] = useState(
+    JSON.parse(localStorage.getItem('user'))
+  );
 
   return (
     <div className="App">

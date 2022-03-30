@@ -27,7 +27,11 @@ export const CreateStudent = () => {
 
     axios
       .post(
-        'https://crud-app-pawan-js.herokuapp.com/students/create-student',
+        `${
+          process.env.NODE_ENV !== 'production'
+            ? process.env.REACT_APP_DEV_URL
+            : process.env.REACT_APP_PROD_URL
+        }/students/create-student`,
         formValues
       )
       .then((response) => {

@@ -28,7 +28,14 @@ export const Login = ({ setLoginUser }) => {
     };
 
     axios
-      .post('https://crud-app-pawan-js.herokuapp.com/api/users/login', newUser)
+      .post(
+        `${
+          process.env.NODE_ENV !== 'production'
+            ? process.env.REACT_APP_DEV_URL
+            : process.env.REACT_APP_PROD_URL
+        }/api/users/login`,
+        newUser
+      )
       .then((res) => {
         alert('Logged in successfully!');
         setFormValues({
@@ -37,6 +44,7 @@ export const Login = ({ setLoginUser }) => {
           errors: {},
         });
 
+        localStorage.setItem('user', JSON.stringify(res.data.user));
         setLoginUser(res.data.user);
         navigate('/student-list');
       })

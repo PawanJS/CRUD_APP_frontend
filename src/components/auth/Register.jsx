@@ -34,7 +34,11 @@ export const Register = ({ setLoginUser }) => {
 
     axios
       .post(
-        'https://crud-app-pawan-js.herokuapp.com/api/users/register',
+        `${
+          process.env.NODE_ENV !== 'production'
+            ? process.env.REACT_APP_DEV_URL
+            : process.env.REACT_APP_PROD_URL
+        }/api/users/register`,
         newUser
       )
       .then((res) => {
@@ -47,6 +51,7 @@ export const Register = ({ setLoginUser }) => {
           errors: {},
         });
 
+        localStorage.setItem('user', JSON.stringify(res.data));
         setLoginUser(res.data);
         navigate('/student-list');
       })

@@ -9,6 +9,7 @@ export const Header = ({ user, setLoginUser }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    localStorage.removeItem('user');
     setLoginUser({});
     navigate('/login');
   };
@@ -18,7 +19,10 @@ export const Header = ({ user, setLoginUser }) => {
       <Navbar bg="light" variant="dark">
         <Container>
           <Navbar.Brand>
-            <Link to={'/'} className="btn me-2">
+            <Link
+              to={user && user._id ? '/student-list' : '/'}
+              className="btn me-2"
+            >
               MERN Stack CRUD App with AUTH
             </Link>
           </Navbar.Brand>

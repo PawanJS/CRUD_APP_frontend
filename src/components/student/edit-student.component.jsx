@@ -21,7 +21,11 @@ export const EditStudent = () => {
 
       await axios
         .get(
-          `https://crud-app-pawan-js.herokuapp.com/students/edit-student/${id}`
+          `${
+            process.env.NODE_ENV !== 'production'
+              ? process.env.REACT_APP_DEV_URL
+              : process.env.REACT_APP_PROD_URL
+          }/students/edit-student/${id}`
         )
         .then((response) => {
           setFormValues({
@@ -52,7 +56,11 @@ export const EditStudent = () => {
 
     axios
       .put(
-        `https://crud-app-pawan-js.herokuapp.com/students/update-student/${id}`,
+        `${
+          process.env.NODE_ENV !== 'production'
+            ? process.env.REACT_APP_DEV_URL
+            : process.env.REACT_APP_PROD_URL
+        }/students/update-student/${id}`,
         formValues
       )
       .then((response) => {
